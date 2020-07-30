@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 function guessing(){
-    true_ans=$(ls -l |grep "^-"|wc -l)
+    ans=$(ls -l |grep "^-"|wc -l)
     while true;
     do
         echo "enter your guess"
         read  number
-        if [ $number -lt $true_ans ]
+        if [ $number -lt $ans ]
         then
-            echo "your guess is Less then the true number"
-        elif [ $number -gt $true_ans ]
+            echo "your guess is too low"
+        elif [ $number -gt $ans ]
         then
-            echo "your guess is Greater then the true number"
+            echo "Your guess is too high"
         else
-            echo " congratulation,you are right!"
+            echo "Congratulations! Right answer"
         break;
         fi
     done
 }
-echo "guess the files number in the current directory!"
+echo "Guess the number of files in the directory"
 guessing
